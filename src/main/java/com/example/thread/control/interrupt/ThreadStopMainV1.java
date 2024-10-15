@@ -17,7 +17,7 @@ public class ThreadStopMainV1 {
 
     static class MyTask implements Runnable {
 
-        volatile boolean runFlag = true;
+        volatile boolean runFlag = true; // 여러 스레드에서 공유하는 값에 사용되는 키워드
 
         @Override
         public void run() {
