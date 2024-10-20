@@ -3,10 +3,13 @@ package com.example.thread.sync;
 import static com.example.util.MyLogger.log;
 import static com.example.util.ThreadUtils.sleep;
 
+/**
+ * 동시성 문제 발생
+ */
 public class BankMain {
 
     public static void main(String[] args) throws InterruptedException {
-        BankAccountV1 bankAccountV1 = new BankAccountV1(1000); // x001
+        BankAccountV1 bankAccountV1 = new BankAccountV1(1000); // x001 -> 공유자원
         Thread t1 = new Thread(new WithdrawTask(bankAccountV1, 800), "t1");
         Thread t2 = new Thread(new WithdrawTask(bankAccountV1, 800), "t2");
         // 동시에 출금 시도
@@ -29,7 +32,7 @@ public class BankMain {
 //19:55:30.740 [       t1] 거래시작 : BankAccountV1
 //19:55:30.747 [       t1] 검증 시작. 출금액 : 800 잔액: 1000
 //19:55:30.747 [       t1] 검증 완료. 출금액 : 800 잔액: 1000
-//19:55:30.750 [       t2] 검증 시작. 출금액 : 800 잔액: 1000
+//19:55:30.750 [       t2] 검증 시작. 출금액 : 800 잔액: 1000 <- !!!
 //19:55:30.750 [       t2] 검증 완료. 출금액 : 800 잔액: 1000
 //19:55:31.240 [     main] t1 state : TIMED_WAITING
 //19:55:31.241 [     main] t2 state : TIMED_WAITING
