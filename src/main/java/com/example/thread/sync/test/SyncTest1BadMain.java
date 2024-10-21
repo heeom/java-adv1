@@ -2,6 +2,7 @@ package com.example.thread.sync.test;
 
 public class SyncTest1BadMain {
 
+    // race condition
     public static void main(String[] args) throws InterruptedException {
         Counter counter = new Counter();
         Runnable task = new Runnable() {
@@ -24,7 +25,7 @@ public class SyncTest1BadMain {
         private int count = 0;
 
         public synchronized void increment() {
-            count = count + 1;
+            count = count + 1; // 임계영역
         }
 
         public synchronized int getCount() {
