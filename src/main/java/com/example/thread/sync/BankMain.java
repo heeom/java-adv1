@@ -9,7 +9,7 @@ import static com.example.util.ThreadUtils.sleep;
 public class BankMain {
 
     public static void main(String[] args) throws InterruptedException {
-        BankAccountV4 bankAccountV1 = new BankAccountV4(1000); // x001 -> 공유자원
+        BankAccountV5 bankAccountV1 = new BankAccountV5(1000); // x001 -> 공유자원
         Thread t1 = new Thread(new WithdrawTask(bankAccountV1, 800), "t1");
         Thread t2 = new Thread(new WithdrawTask(bankAccountV1, 800), "t2");
         // 동시에 출금 시도
