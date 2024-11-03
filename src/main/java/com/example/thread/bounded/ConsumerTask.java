@@ -14,6 +14,6 @@ public class ConsumerTask implements Runnable {
     public void run() {
         log("[소비 시도] " + queue);
         String take = queue.take();
-        log("[생산 완료] " + take + "-> " + queue);
+        log("[소비 완료] " + take + "-> " + queue);
     }
 }

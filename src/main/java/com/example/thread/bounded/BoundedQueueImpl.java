@@ -33,9 +33,6 @@ public class BoundedQueueImpl implements BoundedQueue {
 
     @Override
     public String toString() {
-        return "BoundedQueueImpl{" +
-                "queue=" + queue +
-                ", max=" + max +
-                '}';
+        return "queue=" + queue;
     }
 }
