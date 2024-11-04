@@ -9,7 +9,7 @@ import static com.example.util.ThreadUtils.sleep;
 public class BoundedMain {
 
     public static void main(String[] args) {
-        BoundedQueue boundedQueue = new BoundedQueueV1(2);
+        BoundedQueue boundedQueue = new BoundedQueueV2(2);
         // 생산자 먼저 실행
 //        producerFirst(boundedQueue);
         // 소비자 먼저 실행
