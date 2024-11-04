@@ -5,12 +5,12 @@ import java.util.Queue;
 
 import static com.example.util.MyLogger.log;
 
-public class BoundedQueueImpl implements BoundedQueue {
+public class BoundedQueueV1 implements BoundedQueue {
 
     private final Queue<String> queue = new ArrayDeque<>(); // 공유 자원
     private final int max;
 
-    public BoundedQueueImpl(int max) {
+    public BoundedQueueV1(int max) {
         this.max = max;
     }
 
