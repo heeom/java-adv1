@@ -9,11 +9,11 @@ import static com.example.util.ThreadUtils.sleep;
 public class BoundedMain {
 
     public static void main(String[] args) {
-        BoundedQueue boundedQueue = new BoundedQueueV3(2);
+        BoundedQueue boundedQueue = new BoundedQueueV4(2);
         // 생산자 먼저 실행
-//        producerFirst(boundedQueue);
+        producerFirst(boundedQueue);
         // 소비자 먼저 실행
-        consumerFirst(boundedQueue);
+//        consumerFirst(boundedQueue);
     }
 
     private static void consumerFirst(BoundedQueue boundedQueue) {
