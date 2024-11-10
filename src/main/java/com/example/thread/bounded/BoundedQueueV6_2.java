@@ -2,6 +2,7 @@ package com.example.thread.bounded;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 import static com.example.util.MyLogger.log;
 
@@ -15,13 +16,22 @@ public class BoundedQueueV6_2 implements BoundedQueue {
 
     @Override
     public void put(String data) {
-        boolean result = queue.offer(data); // 스레드가 대기 X -> 버퍼가 가득 차면 즉시 false 반환
-        log("저장 시도 결과 : " + result);
+        boolean result = false; // 스레드가 대기 :  1 nano seconds -> 대기 시간 이후에도 버퍼가 가득 차면  false 반환
+        try {
+            result = queue.offer(data, 1, TimeUnit.NANOSECONDS);
+            log("저장 시도 결과 : " + result);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public String take() {
-        return queue.poll(); // 버퍼가 없으면 null 반환
+        try {
+            return queue.poll(2, TimeUnit.SECONDS); // 대기 시간 설정
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
