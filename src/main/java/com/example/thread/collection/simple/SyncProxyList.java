@@ -17,8 +17,12 @@ public class SyncProxyList implements SimpleList {
     }
 
     @Override
+    // 1. 락 획득
     public synchronized void add(Object o) {
+        // 2. 원본 메서드 호출
         target.add(o); // synchronized만 걸고 원본 대상 호출
+        // 3. 원본 메서드 반납
+        // 4. 락 반납
     }
 
     @Override
