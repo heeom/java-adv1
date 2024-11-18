@@ -19,11 +19,14 @@ public class BasicList implements SimpleList {
         return size;
     }
 
+    /**
+     * 원자적이지 않은 연산
+     */
     @Override
     public void add(Object o) {
-        elem[size] = o;
+        elem[size] = o; // 1. 마지막 index + 1에 Object 저장
         sleep(100);
-        size++;
+        size++; // 2. size 하나 올림
     }
 
     @Override
