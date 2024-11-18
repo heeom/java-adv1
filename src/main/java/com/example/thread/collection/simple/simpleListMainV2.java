@@ -11,7 +11,7 @@ import static com.example.util.MyLogger.log;
 public class simpleListMainV2 {
 
     public static void main(String[] args) throws InterruptedException {
-        SimpleList basicList = new BasicList();
+        SimpleList basicList = new SyncList();
         test(basicList);
     }
 
