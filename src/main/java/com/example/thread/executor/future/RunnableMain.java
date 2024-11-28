@@ -1,4 +1,4 @@
-package com.example.thread.executor;
+package com.example.thread.executor.future;
 
 import java.util.Random;
 
